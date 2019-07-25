@@ -1,12 +1,20 @@
 import React from 'react';
+import AppNavigator from './AppNavigator';
 import { StyleSheet, Text, View } from 'react-native';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import reducer from './reducer';
 
-function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start workingkjh on your app!</Text>
-    </View>
-  );
+const store = createStore(reducer);
+
+class App extends React.Component {
+   render() {
+      return (
+         <Provider store={ store }>
+            <AppNavigator/>
+         </Provider>
+      );
+   }
 }
 
 const styles = StyleSheet.create({
