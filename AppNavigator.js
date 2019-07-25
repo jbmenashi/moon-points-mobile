@@ -1,4 +1,4 @@
-import { createStackNavigator } from 'react-navigation';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
 import Home from './components/Home';
 import Friends from './components/Friends';
 
@@ -7,4 +7,4 @@ const AppNavigator = createStackNavigator({
   Friends: { screen: Friends}
 });
 
-export default AppNavigator;
+export default createAppContainer(AppNavigator);

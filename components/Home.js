@@ -1,11 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 
 class Home extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-         <Text>Welcome to Moon Points!</Text>
+         <Text>Welcome to Moon Points!!</Text>
          <Button
             title="Add some friends"
             onPress={() => this.props.navigation.navigate('Friends')}
