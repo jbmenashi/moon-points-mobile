@@ -13,11 +13,9 @@ class Home extends React.Component {
     return (
       <View style={styles.container}>
          <Text>Welcome to Moon Points!!</Text>
-         <Text>{this.props.test}</Text>
-         <Button
-            title="Add some friends"
-            onPress={() => this.props.navigation.navigate('Friends')}
-         />
+         <Button title="My Profile" onPress={() => this.props.navigation.navigate('MyProfile')}/>
+         <Button title="Standings" onPress={() => this.props.navigation.navigate('Standings')}/>
+         <Button title="Stats" onPress={() => this.props.navigation.navigate('Stats')}/>
       </View>
     );
   }
