@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, YellowBox } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { Button } from 'react-native-elements'
 import { connect } from 'react-redux'
 
@@ -14,9 +14,9 @@ class Home extends React.Component {
     return (
       <View style={styles.container}>
          <Text style={styles.title}>Moon Points!</Text>
-         <Button style={styles.link} title="My Profile" onPress={() => this.props.navigation.navigate('MyProfile')}/>
-         <Button style={styles.link} title="Standings" onPress={() => this.props.navigation.navigate('Standings')}/>
-         <Button style={styles.link} title="Stats" onPress={() => this.props.navigation.navigate('Stats')}/>
+         <Button type="outline" style={styles.link} title="My Profile" onPress={() => this.props.navigation.navigate('MyProfile')}/>
+         <Button type="outline" style={styles.link} title="Standings" onPress={() => this.props.navigation.navigate('Standings')}/>
+         <Button type="outline" style={styles.link} title="Stats" onPress={() => this.props.navigation.navigate('Stats')}/>
       </View>
     );
   }
@@ -32,6 +32,11 @@ const styles = StyleSheet.create({
    title: {
       color: '#F3D83A',
       fontSize: 30
+   },
+   link: {
+      backgroundColor: '#7A13E1',
+      borderColor: '#F3D83A',
+      marginBottom: 6
    }
 });
 
