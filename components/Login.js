@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { StyleSheet, Text, View } from 'react-native';
+import { Input, Button } from 'react-native-elements'
  
 const mapStateToProps = state => {
    return {
@@ -46,11 +47,12 @@ class Login extends React.Component {
    }
 
    render() { 
+      console.log(this.props.currentUsername)
       return ( 
          <View>
             <Text>Login!</Text>
             <Input onChange={this.props.inputUsername} value={this.props.usernameInput} placeholder="Username"/>
-            <Button onClick={() => this.submitUsername(this.props.usernameInput)}>Submit</Button>
+            <Button type="outline" title="Submit" onPress={() => this.submitUsername(this.props.usernameInput)}/>
          </View>
        );
    }
