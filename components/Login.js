@@ -24,6 +24,7 @@ class Login extends React.Component {
       fetch('http://localhost:3001/users')
       .then(res => res.json())
       .then(data => {
+         console.log(data)
          let foundUser = data.find(user => user.username === input)
          // console.log(foundUser)
          if (foundUser) {
