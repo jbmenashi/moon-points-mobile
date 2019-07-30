@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 const mapStateToProps = state => {
    return {
-      test: state.test
+      points: state.points
    }
 }
 
@@ -19,8 +19,10 @@ class Home extends React.Component {
 
    componentDidMount() {
       fetch('http://localhost:3001/points')
-
+      .then(res => res.json())
+      .then(data => this.props.loadPoints(data))
    }
+
    render() {
       return (
          <View style={styles.container}>
