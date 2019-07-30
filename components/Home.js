@@ -5,13 +5,17 @@ import { connect } from 'react-redux'
 
 const mapStateToProps = state => {
    return {
-      points: state.points
+      points: state.points,
+      dailyPointCheck: state.dailyPointCheck,
+      dailyPoint: state.dailyPoint
    }
 }
 
 const mapDispatchToProps = dispatch => {
    return {
-      loadPoints: (points) => dispatch({type: 'LOAD_POINTS', payload: points})
+      loadPoints: (points) => dispatch({type: 'LOAD_POINTS', payload: points}),
+      flipPointCheck: () => dispatch({type: 'FLIP_POINT_CHECK'}),
+      setDailyPoint: (point) => dispatch({type: 'SET_DAILY_POINT', payload: point})
    }
 }
 
@@ -23,10 +27,26 @@ class Home extends React.Component {
       .then(data => this.props.loadPoints(data))
    }
 
+   pointAcquired(points) {
+      let today = new Date()
+      let foundPoint = this.props.points.find(point => point.date === today)
+      if (foundPoint) {
+         this.props.flipPointCheck()
+         this.props.setDailyPoint(foundPoint)
+         return true
+      }
+      else {
+         return false
+      }
+   }
+
    render() {
       return (
          <View style={styles.container}>
             <Text style={styles.title}>Moon Points!</Text>
+            {this.points.dailyPointCheck ? 
+            <Text>Today's Moon Point has already been claimed by {this.props.dailyPoint.user}!</Text> :
+            <CamContainer/>}
             <Button type="outline" style={styles.link} title="My Profile" onPress={() => this.props.navigation.navigate('MyProfile')}/>
             <Button type="outline" style={styles.link} title="Standings" onPress={() => this.props.navigation.navigate('Standings')}/>
             <Button type="outline" style={styles.link} title="Stats" onPress={() => this.props.navigation.navigate('Stats')}/>
