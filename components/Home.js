@@ -9,17 +9,28 @@ const mapStateToProps = state => {
    }
 }
 
+const mapDispatchToProps = dispatch => {
+   return {
+      loadPoints: (points) => dispatch({type: 'LOAD_POINTS', payload: points})
+   }
+}
+
 class Home extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-         <Text style={styles.title}>Moon Points!</Text>
-         <Button type="outline" style={styles.link} title="My Profile" onPress={() => this.props.navigation.navigate('MyProfile')}/>
-         <Button type="outline" style={styles.link} title="Standings" onPress={() => this.props.navigation.navigate('Standings')}/>
-         <Button type="outline" style={styles.link} title="Stats" onPress={() => this.props.navigation.navigate('Stats')}/>
-      </View>
-    );
-  }
+
+   componentDidMount() {
+      fetch('http://localhost:3001/points')
+
+   }
+   render() {
+      return (
+         <View style={styles.container}>
+            <Text style={styles.title}>Moon Points!</Text>
+            <Button type="outline" style={styles.link} title="My Profile" onPress={() => this.props.navigation.navigate('MyProfile')}/>
+            <Button type="outline" style={styles.link} title="Standings" onPress={() => this.props.navigation.navigate('Standings')}/>
+            <Button type="outline" style={styles.link} title="Stats" onPress={() => this.props.navigation.navigate('Stats')}/>
+         </View>
+      );
+   }
 }
 
 const styles = StyleSheet.create({
@@ -40,4 +51,4 @@ const styles = StyleSheet.create({
    }
 });
 
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

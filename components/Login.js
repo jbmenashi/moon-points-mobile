@@ -29,6 +29,7 @@ class Login extends React.Component {
          // console.log(foundUser)
          if (foundUser) {
             this.props.setUser(foundUser._id, foundUser.username)
+            this.props.navigation.navigate('Home')
          }
          else {
             fetch('http://localhost:3001/users', {
@@ -42,7 +43,10 @@ class Login extends React.Component {
                })
             })
             .then(res => res.json())
-            .then(data => this.props.setUser(data._id, data.username))
+            .then(data => {
+               this.props.setUser(data._id, data.username)
+               this.props.navigation.navigate('Home')
+            })
          }
       })
    }

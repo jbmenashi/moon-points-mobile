@@ -1,5 +1,6 @@
 const initialState = {
    users: [],
+   points: [],
    currentUserId: undefined,
    currentUsername: undefined,
    usernameInput: '',
@@ -12,6 +13,8 @@ const reducer = (state = initialState, action) => {
          return {...state, currentUserId: action.id, currentUsername: action.username}
       case "INPUT_USERNAME":
          return {...state, usernameInput: action.payload}
+      case "LOAD_POINTS":
+         return {...state, points: action.payload}
    default:
       return state
   }
