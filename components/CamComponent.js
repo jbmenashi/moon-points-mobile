@@ -30,7 +30,7 @@ class CamComponent extends Component {
    render() {
 
       if (this.props.hasCameraPermission === null) {
-         return <View />;
+         return <Text>crap</Text>;
       } else if (this.props.hasCameraPermission === false) {
          return <Text>Access to camera has been denied.</Text>;
       }
