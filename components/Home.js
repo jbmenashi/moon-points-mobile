@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { Button } from 'react-native-elements'
 import { connect } from 'react-redux'
 
@@ -55,5 +55,23 @@ class Home extends React.Component {
       );
    }
 }
+
+const styles = StyleSheet.create({
+   container: {
+      flex: 1,
+      backgroundColor: '#7A13E1',
+      alignItems: 'center',
+      justifyContent: 'center',
+   },
+   title: {
+      color: '#F3D83A',
+      fontSize: 30
+   },
+   link: {
+      backgroundColor: '#7A13E1',
+      borderColor: '#F3D83A',
+      marginBottom: 6
+   }
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
