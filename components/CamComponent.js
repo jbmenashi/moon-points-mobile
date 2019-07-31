@@ -9,17 +9,22 @@ const mapStateToProps = state => {
    }
 }
 
+const mapDispatchToProps = dispatch => {
+   return {
+      permitCamera: () => dispatch({type: 'PERMIT_CAMERA'}),
+      dontPermitCamera: () => dispatch({type: 'DONT_PERMIT_CAMERA'})
+   }
+}
+
 class CamComponent extends Component {
    camera = null;
-
-
 
    async componentDidMount() {
       const camera = await Permissions.askAsync(Permissions.CAMERA);
       const audio = await Permissions.askAsync(Permissions.AUDIO_RECORDING);
       const hasCameraPermission = (camera.status === 'granted' && audio.status === 'granted');
 
-      // this.setState({ hasCameraPermission });
+      hasCameraPermission ? this.props.permitCamera() : this.props.dontPermitCamera()
    };
 
    render() {
@@ -31,4 +36,4 @@ class CamComponent extends Component {
    }
 }
 
-export default connect(mapStateToProps)(CamComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(CamComponent);

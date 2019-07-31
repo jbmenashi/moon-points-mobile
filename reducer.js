@@ -6,7 +6,8 @@ const initialState = {
    currentUserId: undefined,
    currentUsername: undefined,
    usernameInput: '',
-   test: "test"
+   test: "test",
+   camPermitted: null
 }
 
 const reducer = (state = initialState, action) => {
@@ -21,6 +22,10 @@ const reducer = (state = initialState, action) => {
          return {...state, dailyPointCheck: true}
       case "SET_DAILY_POINT":
          return {...state, dailyPoint: action.payload}
+      case "PERMIT_CAMERA":
+         return {...state, camPermitted: true}
+      case "DONT_PERMIT_CAMERA":
+         return {...state, camPermitted: false}
    default:
       return state
   }

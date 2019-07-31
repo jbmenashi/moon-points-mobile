@@ -46,6 +46,7 @@ class Home extends React.Component {
             <Text style={styles.title}>Moon Points!</Text>
             {this.points.dailyPointCheck ? 
             <Text>Today's Moon Point has already been claimed by {this.props.dailyPoint.user}!</Text> :
+            // change this to a component that shows the claimed picture later
             <CamContainer/>}
             <Button type="outline" style={styles.link} title="My Profile" onPress={() => this.props.navigation.navigate('MyProfile')}/>
             <Button type="outline" style={styles.link} title="Standings" onPress={() => this.props.navigation.navigate('Standings')}/>
