@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { Camera, Permissions } from 'expo';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+
+import { styles } from 'styles.js'
 
 const mapStateToProps = state => {
    return {
@@ -37,7 +39,7 @@ class CamComponent extends Component {
 
       return (
          <View>
-            <Camera ref={camera => this.camera = camera}/>
+            <Camera style={styles.preview} ref={camera => this.camera = camera}/>
          </View>
       );
    }
