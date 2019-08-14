@@ -7,7 +7,7 @@ export default class Stats extends React.Component {
       <View style={styles.container}>
          <Text>Stats</Text>
          <Button
-            title="Back to home"
+            title="Return To Home Page"
             onPress={() => this.props.navigation.navigate('Home')}
          />
       </View>

@@ -7,7 +7,7 @@ export default class MyProfile extends React.Component {
       <View style={styles.container}>
          <Text>My Profile</Text>
          <Button
-            title="Back to home"
+            title="Return To Home Page"
             onPress={() => this.props.navigation.navigate('Home')}
          />
       </View>

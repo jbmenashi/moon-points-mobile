@@ -7,7 +7,7 @@ export default class Standings extends React.Component {
       <View style={styles.container}>
          <Text>Standings</Text>
          <Button
-            title="Back to home"
+            title="Return To Home Page"
             onPress={() => this.props.navigation.navigate('Home')}
          />
       </View>
